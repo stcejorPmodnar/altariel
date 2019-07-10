@@ -3,7 +3,16 @@
     margin: 0px;
 }
 
+@font-face {
+    font-family: 'Avenir Light';
+    src: url('../fonts/avenir/avenir-light.otf');
+}
+
 body {
     background-color: black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Avenir Light";
 }
 
