@@ -1,4 +1,2 @@
 #ignoring stupid macos files
 .DS_Store
-app.py
-venv

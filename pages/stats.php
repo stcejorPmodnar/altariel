@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Fitness App</title>
+        <title>Fitness App | Your Stats</title>
     </head>
-    <body>
-        <div id="navbar">
+    <body>  
+    <div id="navbar">
             <div class="navbar-link">
                 <a href="../index.html">Home</a>
             </div>
@@ -17,3 +17,4 @@
         </div>
     </body>
 </html>
+
