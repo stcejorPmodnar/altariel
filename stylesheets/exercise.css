@@ -21,11 +21,11 @@
 
 .button {
     height: 90%;
-    width: 30%;
+    width: 28%;
     background-color: rgb(41, 41, 41);
     margin-top: 3px;
     display: inline-block;
-    margin-right: .5%;
+    margin-right: 1.5%;
     cursor: pointer;
     border: 2px solid white;
 }
