@@ -1,0 +1,40 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+
+#workout-header {
+    padding:20px;
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.buttonstrip {
+    width: 73%;
+    height: 70px;
+    margin: auto;
+    padding-left: 3.5%;
+    margin-top: 15px;
+}
+
+.button {
+    height: 90%;
+    width: 28%;
+    background-color: rgb(41, 41, 41);
+    margin-top: 3px;
+    display: inline-block;
+    margin-right: 1.5%;
+    cursor: pointer;
+    border: 2px solid rgb(255, 255, 255);
+    vertical-align: middle;
+    text-align: center;
+}
+
+.buttonstripLabelText {
+    text-align: center;
+    color: white;
+    font-family: 'Avenir Light';
+    font-size: 24px;
+}
