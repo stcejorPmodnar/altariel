@@ -21,7 +21,7 @@ body {
 }
 
 .buttonstrip {
-    width: 85%;
+    width: 90%;
     height: 70px;
     margin: auto;
     padding-left: 3.5%;
@@ -30,7 +30,7 @@ body {
 
 .button {
     height: 49px;
-    width: 28%;
+    width: 30%;
     background-color: rgba(0, 0, 0, .5);
     margin-top: 3px;
     display: inline-block;

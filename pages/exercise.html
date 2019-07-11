@@ -59,9 +59,9 @@
             </div>
 
             <div id=start >
-                <button id='greyStart' class='startbutton' onclick='hideStart();'>
-                    <span>Start Workout</span>
-                </button>
+                    <button id='greyStart' class='startbutton' >
+                        <span>Start Workout</span>
+                    </button>
             </div>
         </div>
         <script>
@@ -69,11 +69,14 @@
                 var els = document.getElementsByClassName('selected').length;
                 if (els == 2) {
                     document.getElementById('greyStart').id = 'startButtonRemoveGrey'
+                    document.getElementById('start').innerHTML =  "<form action='live.php'> <button id='startButtonRemoveGrey' class='startbutton' type=submit ><span>Start Workout</span></button></form>"
+                    document.getElementById('startButtonRemoveGrey').onclick = function() { $('#startSection').hide('fast') };
+
                 }
             }
-            function hideStart() {
-                $('#startSection').hide('fast')
-            }
+            // function hideStart() {
+            //     $('#startSection').hide('fast')
+            // }
         </script>
     </body>
 </html>
