@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test</title>
+    </head>
+    <body>
+        <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+        type="text/javascript" charset="utf-8"></script>
+        <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+        type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            const platform = new H.service.Platform({
+                "app_id": "LFOyG4AZMhsvTk1rYbvT",
+                "app_code": "jeC11X88hHF6s0eaV4ur4A",
+                "apikey": "6IE8hjR3py8ZrnA_0HDEgjBI1qH7Wu7R3kCXDTZVK9o"
+            });
+            const geocoderService = platform.getGeocodingService();
+            if(navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    geocoderService.reverseGeocode(
+                        {
+                            mode: "retrieveAddress",
+                            maxresults: 1,
+                            prox: position.coords.latitude + "," + position.coords.longitude
+                        },
+                        success => {
+                            var fs = require("fs");
+                            fs.writefile('./location/json', JSON.stringify(success.Response), (err) => {
+                                if (err) {
+                                    console.error(err);
+                                    return;
+                                };
+                                console.log("file has been created")
+                            })
+                        },
+                        error => {
+                            console.error(error)
+                        }
+                    )
+                })
+            }
+        </script>
+    </body>
+</html>
