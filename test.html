@@ -17,6 +17,7 @@
             const geocoderService = platform.getGeocodingService();
             if(navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(position => {
+                    console.log("Latitude:" + position.coords.latitude + "\nLongitude:" + position.coords.longitude)
                     geocoderService.reverseGeocode(
                         {
                             mode: "retrieveAddress",
