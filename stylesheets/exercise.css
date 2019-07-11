@@ -38,3 +38,8 @@
     font-family: 'Avenir Light';
     font-size: 24px;
 }
+
+.selected {
+    background-color: rgb(74, 13, 109);
+    transition: .2s;
+}

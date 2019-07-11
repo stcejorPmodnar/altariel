@@ -4,23 +4,34 @@
         <title>Fitness App | Your Exercise</title>
         <link rel="stylesheet" type="text/css" href="../stylesheets/main.css">
         <link rel="stylesheet" type="text/css" href="../stylesheets/exercise.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <body>
         <div id="workout-header">
             <h1>Choose a workout:</h1>
         </div>
 
+        <script>
+            function addSelectedButtonClass(id) {
+                var el = document.getElementById(id);
+                $(".button").removeClass( "selected" )
+                el.className += " selected";
+            }
+        </script>
+
         <div class=buttonstrip>
-            <div class=button>
+            <div class='button' id='buttonTop1' onclick='addSelectedButtonClass(this.id);'>
                 <span class='buttonstripLabelText'>Running</span>
             </div>
-            <div class=button>
+            <div class='button' id='buttonTop2' onclick='addSelectedButtonClass(this.id);'>
                 <span class='buttonstripLabelText'>Running</span>
             </div>
-            <div class=button>
+            <div class='button' id='buttonTop3' onclick='addSelectedButtonClass(this.id);'>
                 <span class='buttonstripLabelText'>Running</span>
             </div>
         </div>
+
 
     </body>
 </html>
