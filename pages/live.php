@@ -18,5 +18,15 @@
             </a>
         </div>
         <div id='bumper'></div>
+
+        <?php 
+            $trans = $_POST['transport'];
+            $focus = $_POST['focus'];
+
+            echo "<span style='color:white;'>$trans</span><br>";
+            echo "<span style='color:white;'>$focus</span>";
+
+        ?>
+
     </body>
 </html>
