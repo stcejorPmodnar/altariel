@@ -12,7 +12,7 @@
 }
 
 .buttonstrip {
-    width: 73%;
+    width: 85%;
     height: 70px;
     margin: auto;
     padding-left: 3.5%;
@@ -20,26 +20,36 @@
 }
 
 .button {
-    height: 90%;
+    height: 49px;
     width: 28%;
     background-color: rgb(41, 41, 41);
     margin-top: 3px;
     display: inline-block;
-    margin-right: 1.5%;
+    margin-right: 0%;
     cursor: pointer;
-    border: 2px solid rgb(255, 255, 255);
     vertical-align: middle;
     text-align: center;
+    padding: 1%;
 }
 
 .buttonstripLabelText {
     text-align: center;
     color: white;
     font-family: 'Avenir Light';
-    font-size: 24px;
+    font-size: 18px;
+    line-height: 49px;
 }
 
 .selected {
     background-color: rgb(74, 13, 109);
     transition: .2s;
+}
+
+#start {
+    width: 75%;
+    height: 70px;
+    margin: auto;
+    padding-left: 3.5%;
+    margin-top: 15px;
+    border: 2px solid rgb(151, 12, 12);
 }
