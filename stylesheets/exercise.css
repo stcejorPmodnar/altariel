@@ -3,6 +3,14 @@
     margin: 0px;
 }
 
+:root {
+    --start-red: rgb(243, 0, 0);
+    --main-purple: rgb(67, 0, 83);
+}
+
+body {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--main-purple)), to(#000000)) fixed;
+}
 
 #workout-header {
     padding:20px;
@@ -22,7 +30,7 @@
 .button {
     height: 49px;
     width: 28%;
-    background-color: rgb(41, 41, 41);
+    background-color: rgba(0, 0, 0, .5);
     margin-top: 3px;
     display: inline-block;
     margin-right: 0%;
@@ -47,9 +55,32 @@
 
 #start {
     width: 75%;
-    height: 70px;
+    margin: auto;
+}
+
+.startbutton {
     margin: auto;
     padding-left: 3.5%;
     margin-top: 15px;
-    border: 2px solid rgb(151, 12, 12);
+    border: 2px solid var(--start-red);
+    width:100%;
+    height: 70px;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    font-size: 20px;
+    font-family: 'Avenir Light';
+    background-color: rgba(1,1,1,.4);
+    outline: none;
+    transition: .2s
 }
+
+.startbutton:active {
+    background-color: rgb(68, 0, 0);
+    outline: none;
+    transition: .2s
+}
+
+/* #greyStart {
+    color: grey;
+    border: 2px solid grey;
+} */
