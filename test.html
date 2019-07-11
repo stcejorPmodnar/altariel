@@ -4,36 +4,12 @@
         <title>Test</title>
     </head>
     <body>
-        <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
-        type="text/javascript" charset="utf-8"></script>
-        <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
-        type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript">
-            const platform = new H.service.Platform({
-                "app_id": "LFOyG4AZMhsvTk1rYbvT",
-                "app_code": "jeC11X88hHF6s0eaV4ur4A",
-                "apikey": "6IE8hjR3py8ZrnA_0HDEgjBI1qH7Wu7R3kCXDTZVK9o"
-            });
-            const geocoderService = platform.getGeocodingService();
             if(navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(position => {
                     console.log("Latitude:" + position.coords.latitude + "\nLongitude:" + position.coords.longitude)
-                    geocoderService.reverseGeocode(
-                        {
-                            mode: "retrieveAddress",
-                            maxresults: 1,
-                            prox: position.coords.latitude + "," + position.coords.longitude
-                        },
-                        success => {
-                            console.log(success.Response)
-                        },
-                        error => {
-                            console.error(error)
-                        }
-                    )
                 })
             }
-
         </script>
     </body>
 </html>
