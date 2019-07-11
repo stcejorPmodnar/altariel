@@ -19,10 +19,11 @@ a, p, h1, h2, h3, h4, h5, h6 {
 }
 
 #navbar {
+    position: relative;
     background-color: #525252;
     width: 100%;
     height: 70px;
-    box-shadow: 0px 3px 10px ;
+    box-shadow: 0 1px 10px #6d5f78;
 }
 
 #navbar > * {
@@ -54,11 +55,15 @@ a, p, h1, h2, h3, h4, h5, h6 {
 
 #title-section {
     text-align: center;
-    background-color: black;
+    background-color: #0d0d0d;
 }
 
-#title-section > h2, #title-section > h4 {
-    margin: 4% 5% 3% 5%
+#title-section > h2 {
+    margin: 10% 5% 3% 5%
+}
+
+#title-section > h4 {
+    margin: 4% 5% 10% 5%
 }
 
 hr {
@@ -68,7 +73,6 @@ hr {
 }
 
 #info {
-    box-sizing: border-box;
     flex: 1 0 100%;
     height: 100%;
 }
