@@ -18,49 +18,62 @@
             </a>
         </div>
         <div id='bumper'></div>
+        <div id='startSection'>
+            <div id="workout-header">
+                <h1>Start a workout:</h1>
+            </div>
 
-        <div id="workout-header">
-            <h1>Start a workout:</h1>
+            <script>
+                function addSelectedButtonClass(id) {
+                    var el = document.getElementById(id);
+                    var classN = el.className;
+                    var split = classN.split(" ")
+                    var string = split[1];
+                    $('.'+string).removeClass( "selected" )
+                    el.className += " selected";
+                }
+            </script>
+
+            <div class=buttonstrip>
+                <div class='button top' id='buttonTop1' onclick='addSelectedButtonClass(this.id);checkStart();'>
+                    <span class='buttonstripLabelText'>Running</span>
+                </div>
+                <div class='button top' id='buttonTop2' onclick='addSelectedButtonClass(this.id);checkStart();'>
+                    <span class='buttonstripLabelText'>Cycling</span>
+                </div>
+                <div class='button top' id='buttonTop3' onclick='addSelectedButtonClass(this.id);checkStart();'>
+                    <span class='buttonstripLabelText'>Walking</span>
+                </div>
+            </div>
+                
+            <div class=buttonstrip>
+                <div class='button bottom' id='buttonBottom1' onclick='addSelectedButtonClass(this.id);checkStart();'>
+                    <span class='buttonstripLabelText'>Distance</span>
+                </div>
+                <div class='button bottom' id='buttonBottom2' onclick='addSelectedButtonClass(this.id);checkStart();'>
+                    <span class='buttonstripLabelText'>Time</span>
+                </div>
+                <div class='button bottom' id='buttonBottom3' onclick='addSelectedButtonClass(this.id);checkStart();'>
+                    <span class='buttonstripLabelText'>Speed</span>
+                </div>
+            </div>
+
+            <div id=start >
+                <button id='greyStart' class='startbutton' onclick='hideStart();'>
+                    <span>Start Workout</span>
+                </button>
+            </div>
         </div>
-
         <script>
-            function addSelectedButtonClass(id) {
-                var el = document.getElementById(id);
-                $(".button").removeClass( "selected" )
-                el.className += " selected";
+            function checkStart() {
+                var els = document.getElementsByClassName('selected').length;
+                if (els == 2) {
+                    document.getElementById('greyStart').id = 'startButtonRemoveGrey'
+                }
+            }
+            function hideStart() {
+                $('#startSection').hide('fast')
             }
         </script>
-
-        <div class=buttonstrip>
-            <div class='button top' id='buttonTop1' onclick='addSelectedButtonClass(this.id);'>
-                <span class='buttonstripLabelText'>Running</span>
-            </div>
-            <div class='button top' id='buttonTop2' onclick='addSelectedButtonClass(this.id);'>
-                <span class='buttonstripLabelText'>Cycling</span>
-            </div>
-            <div class='button top' id='buttonTop3' onclick='addSelectedButtonClass(this.id);'>
-                <span class='buttonstripLabelText'>Walking</span>
-            </div>
-        </div>
-            
-        <div class=buttonstrip>
-            <div class='button bottom' id='buttonBottom1' onclick='addSelectedButtonClass(this.id);'>
-                <span class='buttonstripLabelText'>Distance</span>
-            </div>
-            <div class='button bottom' id='buttonBottom2' onclick='addSelectedButtonClass(this.id);'>
-                <span class='buttonstripLabelText'>Time</span>
-            </div>
-            <div class='button bottom' id='buttonBottom3' onclick='addSelectedButtonClass(this.id);'>
-                <span class='buttonstripLabelText'>Speed</span>
-            </div>
-        </div>
-
-        <div id=start >
-            <button id='greyStart' class='startbutton'>
-                <span>Start Workout</span>
-            </button>
-        </div>
-
-
     </body>
 </html>

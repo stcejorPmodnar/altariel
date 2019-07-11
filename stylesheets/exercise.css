@@ -82,7 +82,7 @@ body {
     transition: .2s
 }
 
-/* #greyStart {
+#greyStart {
     color: grey;
     border: 2px solid grey;
-} */
+}
