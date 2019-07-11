@@ -14,23 +14,32 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Avenir Light";
+    color: white;
 }
 
 #navbar {
     background-color: #525252;
     width: 100%;
-    height: 200px;
+    height: 100px;
 }
 
-.navbar-link {
-    background-color: white;
-    width: 100px;
-    height: 200px;
+#navbar > * {
     display: inline-block;
-    text-align: center;
 }
 
-.navbar-link-text {
-    vertical-align: middle;
-    padding-top: 50px;
+.navbar-link-text, .navbar-link-text:link, .navbar-link-text:visited {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    float: right;
+    line-height: 100px;
+}
+
+.navbar-link-text:hover > h4, .navbar-link-text:active > h4 {
+    color: #949494;
+}
+
+#navbar-title {
+    margin-left: 10px;
+    line-height: 100px;
 }
