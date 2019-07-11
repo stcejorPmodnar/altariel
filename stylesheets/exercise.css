@@ -5,7 +5,8 @@
 
 :root {
     --start-red: rgb(243, 0, 0);
-    --main-purple: rgb(67, 0, 83);
+    --main-purple: rgb(82, 0, 99);
+    --secondary-purple: #6A388F;
 }
 
 body {
@@ -49,7 +50,7 @@ body {
 }
 
 .selected {
-    background-color: rgb(74, 13, 109);
+    background-color: var(--secondary-purple);
     transition: .2s;
 }
 
@@ -71,7 +72,8 @@ body {
     font-family: 'Avenir Light';
     background-color: rgba(1,1,1,.4);
     outline: none;
-    transition: .2s
+    transition: .2s;
+    cursor: pointer;
 }
 
 .startbutton:active {
