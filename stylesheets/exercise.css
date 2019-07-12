@@ -4,7 +4,7 @@
 }
 
 :root {
-    --start-red: rgb(243, 0, 0);
+    --start-red: rgb(150, 75, 211);
     --main-purple: rgb(82, 0, 99);
     --secondary-purple: #6A388F;
 }
@@ -55,7 +55,7 @@ body {
 }
 
 #start {
-    width: 75%;
+    width: 87%;
     margin: auto;
 }
 
@@ -65,7 +65,7 @@ body {
     margin-top: 15px;
     border: 2px solid var(--start-red);
     width:100%;
-    height: 70px;
+    height: 60px;
     background-color: rgba(0,0,0,0);
     color: white;
     font-size: 20px;
@@ -77,7 +77,7 @@ body {
 }
 
 .startbutton:active {
-    background-color: rgb(68, 0, 0);
+    background-color: rgb(57, 0, 68);
     outline: none;
     transition: .2s
 }
@@ -85,4 +85,8 @@ body {
 #greyStart {
     color: grey;
     border: 2px solid grey;
+}
+
+#greyStart:active {
+    background-color: rgb(39, 39, 39);
 }
