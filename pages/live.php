@@ -18,52 +18,103 @@
             </a>
         </div>
         <div id='bumper'></div>
-        <p id=coordinates>test</p>
+        <p id='coord'></p>
         <?php 
-
-
             $trans = $_POST['transport'];
             $focus = $_POST['focus'];
 
-            echo "<span style='color:white;'>$trans</span><br>";
-            echo "<span style='color:white;'>$focus</span>";
-        ?>
-            <script type="text/javascript">
-
-
-            function getCoords(){
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    document.getElementById('coordinates').innerHTML = position.coords.latitude + ',' + position.coords.longitude;
-                });
+            if ( $trans == "buttonTop1" ) {
+                $transEng = "running";
             }
-            
-            getCoords()
+            elseif ( $trans == "buttonTop2" ) {
+                $transEng = "cycling";
+            }
+            else {
+                $transEng = "walking";
+            }
 
-            // function getLocation() {
-            //     if (navigator.geolocation) {
-            //         navigator.geolocation.getCurrentPosition(showPosition);
-            //     } else {
-            //         x.innerHTML = "Geolocation is not supported by this browser.";
-            //     }
-            // }
+            if ( $focus == "buttonBottom1" ) {
+                $focusEng = "distance";
+            }
+            elseif ( $focus == "buttonBottom2" ) {
+                $focusEng = "time";
+            }
+            else {
+                $focusEng = "speed";
+            }
 
-            // function showPosition(position) {
-            //     var coords = position.coords.latitude + ',' + position.coords.longitude; 
-            //     return coords
-            // }
-            // console.log(getLocation());
-            // function coords() {
-            //     if(navigator.geolocation) {
-            //         navigator.geolocation.getCurrentPosition(position => {
-            //             console.log("Latitude:" + position.coords.latitude + "\nLongitude:" + position.coords.longitude)
-            //         })
-            //     }
-            // }
-            // for (let i = 0; i < 5; i++) {
-            //     document.getElementById('coordinates').innerHTML = coords();
-            // }
+            $folderNum = shell_exec('../foldermaker.sh');
+            $folderNum = preg_replace('/\s+/', '', $folderNum);
 
-        </script>
+            $folderName = "../loc-data/" . "$folderNum" . "_" . "$transEng" . "_" . "$focusEng";
+            mkdir($folderName);
+            $newFolderName = "loc-data/" . "$folderNum" . "_" . "$transEng" . "_" . "$focusEng";
+        ?>
+            <script>
+                function sleep(ms) {
+                    return new Promise(resolve => setTimeout(resolve, ms));
+                }
+
+                async function demo() {
+                    while (1) {
+                        await sleep(2000);
+                        $(document).ready(function() {
+                            if(navigator.geolocation) {
+                                navigator.geolocation.getCurrentPosition(showLocation);
+                            }
+                            else { 
+                                console.log('Geolocation is not supported by this browser.');
+                            }
+                            });
+                            function showLocation(position) {
+                                var latitude = position.coords.latitude;
+                                var longitude = position.coords.longitude;
+                                $.ajax({
+                                    type:'POST',
+                                    url:'locationSaver.php',
+                                    data:'latitude='+latitude+'&longitude='+longitude+'&<?php echo "fileName=$newFolderName"?>',
+                                    success:function(msg){
+                                        if(msg){
+                                            // console.log(msg);
+                                            document.getElementById('coord').innerHTML = msg;
+                                        }else{
+                                            console.log('not Available');
+                                        }
+                                    }
+                                });
+                            }
+                    }
+                }
+
+                demo();
+            </script>
+           <!-- <script>
+
+                $(document).ready(function() {
+                    if(navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showLocation);
+                    }
+                    else { 
+                        console.log('Geolocation is not supported by this browser.');
+                    }
+                });
+                function showLocation(position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+                    $.ajax({
+                        type:'POST',
+                        url:'locationSaver.php',
+                        data:'latitude='+latitude+'&longitude='+longitude+'&fileNum=5',
+                        success:function(msg){
+                            if(msg){
+                                console.log(msg);
+                            }else{
+                                console.log('not Available');
+                            }
+                        }
+                    });
+                }
+            </script> -->
 
     </body>
 </html>
