@@ -4,7 +4,8 @@
 }
 
 :root {
-    --start-red: rgb(150, 75, 211);
+    --start-red: rgb(131, 50, 197);
+    --start-active:rgb(57, 0, 68);
     --main-purple: rgb(82, 0, 99);
     --secondary-purple: #6A388F;
 }
@@ -50,7 +51,7 @@ body {
 }
 
 .selected {
-    background-color: var(--secondary-purple);
+    background-color: var(--start-red);
     transition: .2s;
 }
 
@@ -77,7 +78,7 @@ body {
 }
 
 .startbutton:active {
-    background-color: rgb(57, 0, 68);
+    background-color: var(--start-active);
     outline: none;
     transition: .2s
 }
