@@ -13,19 +13,19 @@ def distance_formula(A, B):
     return dist
 
 
-def shperical_to_cartesian(lat, long, alt):
+def spherical_to_cartesian(phi, theta, rho):
 
-    x = alt * cos(lat) * sin(long)
-    y = alt * sin(lat)
-    z = alt * cos(lat) * cos(long)
+    x = rho * cos(phi) * sin(theta)
+    y = rho * sin(phi)
+    z = rho * cos(phi) * cos(theta)
 
     return x, y, z
 
 
 def main(lat1, lon1, alt1, lat2, lon2, alt2):
     
-    p1 = shperical_to_cartesian(lat1, lon1, alt1)
-    p2 = shperical_to_cartesian(lat2, lon2, alt2)
+    p1 = spherical_to_cartesian(lat1, lon1, alt1)
+    p2 = spherical_to_cartesian(lat2, lon2, alt2)
 
     print(distance_formula(p1, p2))
 
