@@ -1,2 +1,5 @@
 #ignoring stupid macos files
 .DS_Store
+
+test-data/
+
