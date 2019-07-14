@@ -109,24 +109,25 @@
                                     data:'latitude='+latitude+'&longitude='+longitude+'&<?php echo "fileName=$newFolderName"?>',
                                     success:function(msg){
                                         
-                                        if(msg){
-                                            msg = JSON.parse(msg);
-                                            console.log(msg);
-                                            var options2 = {
-                                                chart: {
-                                                    height: 80,
-                                                    type: 'line',
-                                                    sparkline: {
-                                                        enabled: true,
-                                                    }
-                                                },
-                                                series: [{
-                                                    data: msg
-                                                }]
-                                            }
+                                        // if(msg){
+                                        //     msg = JSON.parse(msg);
+                                        //     console.log(msg);
+                                        //     var options2 = {
+                                        //         chart: {
+                                        //             height: 80,
+                                        //             type: 'line',
+                                        //             sparkline: {
+                                        //                 enabled: true,
+                                        //             }
+                                        //         },
+                                        //         series: [{
+                                        //             data: msg
+                                        //         }]
+                                        //     }
 
-                                            altChart.updateOptions(options2)
+                                        //     altChart.updateOptions(options2)
                                             // console.log(msg);
+                                            document.getElementById('coord').innerHTML = msg;
                                         }else{
                                             console.log('not Available');
                                         }
