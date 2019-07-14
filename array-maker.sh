@@ -4,9 +4,13 @@
 
 # this script returns a js array of contents of all files in a directory
 
+
 array="["
 
-for i in $(ls $1); do
+sorted=$(ls $1 | sort -n)
+
+# for i in $(ls $1); do
+for i in $sorted; do
     file=$(cat $1/$i | tr -d '\n' | tr -d ' ')
     array+="\"$file\","
 done
