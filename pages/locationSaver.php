@@ -51,7 +51,10 @@ if(!empty($_POST['latitude']) && !empty($_POST['longitude'])){
     // echo "$coordContent";
 
     $altArray = shell_exec("../array-maker.sh ../$folderName/coordinates/");
-    echo "$altArray";
+    // echo "$altArray";
+
+
+    echo "$long,$lat";
     // $returnArray += "{altitude:$altArray,distance:";
     // $returnArray;
 }
