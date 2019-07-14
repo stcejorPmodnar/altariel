@@ -109,7 +109,7 @@
                                     data:'latitude='+latitude+'&longitude='+longitude+'&<?php echo "fileName=$newFolderName"?>',
                                     success:function(msg){
                                         
-                                        // if(msg){
+                                        if(msg){
                                         //     msg = JSON.parse(msg);
                                         //     console.log(msg);
                                         //     var options2 = {
