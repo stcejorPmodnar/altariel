@@ -27,7 +27,32 @@
             </a>
         </div>
         <div id='bumper'></div>
+
         <p id='coord'></p>
+
+        <div id='timer'></div>
+        <div id='graphAltitude' class='graph'></div>
+        <script>
+            var altOptions = {
+                chart: {
+                    type: 'line',
+                    height: 80,
+                    sparkline: {
+                        enabled: true,
+                    }
+                },
+                series: [{
+                    data: []
+                }],
+            }   
+
+            var altChart = new ApexCharts(document.querySelector("#graphAltitude"), altOptions);
+
+            altChart.render();
+
+
+        </script>
+
         <?php 
             $trans = $_POST['transport'];
             $focus = $_POST['focus'];
@@ -83,9 +108,25 @@
                                     url:'locationSaver.php',
                                     data:'latitude='+latitude+'&longitude='+longitude+'&<?php echo "fileName=$newFolderName"?>',
                                     success:function(msg){
+                                        
                                         if(msg){
+                                            msg = JSON.parse(msg);
+                                            console.log(msg);
+                                            var options2 = {
+                                                chart: {
+                                                    height: 80,
+                                                    type: 'line',
+                                                    sparkline: {
+                                                        enabled: true,
+                                                    }
+                                                },
+                                                series: [{
+                                                    data: msg
+                                                }]
+                                            }
+
+                                            altChart.updateOptions(options2)
                                             // console.log(msg);
-                                            document.getElementById('coord').innerHTML = msg;
                                         }else{
                                             console.log('not Available');
                                         }
