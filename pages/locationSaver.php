@@ -13,6 +13,10 @@ if(!empty($_POST['latitude']) && !empty($_POST['longitude'])){
 
     # Creates a dir to store the coordinates
     // ======================================
+    if (!file_exists( "../loc-data" )) {
+        mkdir("../loc-data");
+    }
+
     if (!file_exists( "../$folderName/coordinates" )) {
         mkdir("../$folderName/coordinates");
     }
