@@ -110,24 +110,24 @@
                                     success:function(msg){
                                         
                                         if(msg){
-                                        //     msg = JSON.parse(msg);
-                                        //     console.log(msg);
-                                        //     var options2 = {
-                                        //         chart: {
-                                        //             height: 80,
-                                        //             type: 'line',
-                                        //             sparkline: {
-                                        //                 enabled: true,
-                                        //             }
-                                        //         },
-                                        //         series: [{
-                                        //             data: msg
-                                        //         }]
-                                        //     }
+                                            msg = JSON.parse(msg);
+                                            console.log(msg);
+                                            altMsg = msg.altitude;
+                                            var options2 = {
+                                                chart: {
+                                                    height: 80,
+                                                    type: 'line',
+                                                    sparkline: {
+                                                        enabled: true,
+                                                    }
+                                                },
+                                                series: [{
+                                                    data: altMsg
+                                                }]
+                                            }
 
-                                        //     altChart.updateOptions(options2)
-                                            // console.log(msg);
-                                            document.getElementById('coord').innerHTML = msg;
+                                            altChart.updateOptions(options2)
+                                            document.getElementById('coord').innerHTML = msg.coordinates;
                                         }else{
                                             console.log('not Available');
                                         }
