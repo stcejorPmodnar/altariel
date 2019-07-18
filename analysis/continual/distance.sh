@@ -2,9 +2,9 @@
 lat1=$(cat $1)
 long1=$(cat $2)
 alt1=$(cat $3)
-lat2=$(cat $4)
-long2=$(cat $5)
-alt2=$(cat $6)
+lat2="$4"
+long2="$5"
+alt2="$6"
 
 lat1=$(echo "$lat1 * 0.0174533" | bc -l)
 lat2=$(echo "$lat2 * 0.0174533" | bc -l)
