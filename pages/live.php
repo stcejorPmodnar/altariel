@@ -15,15 +15,25 @@
 
         <!---==================== FOR JQUERY ===============================================-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <script src="../flipclock/easytimer.min.js"></script>
+
+    <script>
+            var timer = new easytimer.Timer();
+            timer.start();
+            timer.addEventListener('secondsUpdated', function (e) {
+                $('#basicUsage').html(timer.getTimeValues().toString());
+            });
+        </script>
     </head>
     <body>
         <div id="navbar">
             <h2 id="navbar-title">Fitness App</h2>
-            <a href="../index.html" class="navbar-link-text">
-                <h4>Home</h4>
-            </a>
             <a href="exercise.html" class="navbar-link-text">
                 <h4>Exercise</h4>
+            </a>
+            <a href="../index.html" class="navbar-link-text">
+                <h4>Home</h4>
             </a>
         </div>
         <div id='bumper'></div>
@@ -31,7 +41,10 @@
         <p id='coord'></p>
 
         <div id='timer'></div>
-        <div id='graphAltitude' class='graph'></div>
+        <p id="basicUsage"></p>
+
+
+        <!-- <div id='graphAltitude' class='graph'></div> -->
         <script>
             var altOptions = {
                 chart: {
@@ -77,6 +90,11 @@
                 $focusEng = "speed";
             }
 
+
+            if (!file_exists( "../loc-data" )) {
+                mkdir("../loc-data");
+            }
+        
             $folderNum = shell_exec('../foldermaker.sh');
             $folderNum = preg_replace('/\s+/', '', $folderNum);
 
@@ -91,7 +109,7 @@
 
                 async function demo() {
                     while (1) {
-                        await sleep(2000);
+                        await sleep(4000);
                         $(document).ready(function() {
                             if(navigator.geolocation) {
                                 navigator.geolocation.getCurrentPosition(showLocation);
@@ -103,32 +121,35 @@
                             function showLocation(position) {
                                 var latitude = position.coords.latitude;
                                 var longitude = position.coords.longitude;
+                                var alt = position.coords.altitude;
+                                console.log(alt);
                                 $.ajax({
                                     type:'POST',
                                     url:'locationSaver.php',
                                     data:'latitude='+latitude+'&longitude='+longitude+'&<?php echo "fileName=$newFolderName"?>',
                                     success:function(msg){
                                         
-                                        if(msg){
-                                            msg = JSON.parse(msg);
-                                            console.log(msg);
-                                            altMsg = msg.altitude;
-                                            var options2 = {
-                                                chart: {
-                                                    height: 80,
-                                                    type: 'line',
-                                                    sparkline: {
-                                                        enabled: true,
-                                                    }
-                                                },
-                                                series: [{
-                                                    data: altMsg
-                                                }]
-                                            }
+                                        if ( msg ) {
+                                            // msg = JSON.parse(msg);
+                                            // console.log(msg);
+                                            // altMsg = msg.altitude;
+                                            // var options2 = {
+                                            //     chart: {
+                                            //         height: 80,
+                                            //         type: 'line',
+                                            //         sparkline: {
+                                            //             enabled: true,
+                                            //         }
+                                            //     },
+                                            //     series: [{
+                                            //         data: altMsg
+                                            //     }]
+                                            // }
 
-                                            altChart.updateOptions(options2)
-                                            document.getElementById('coord').innerHTML = msg.coordinates;
-                                        }else{
+                                            // altChart.updateOptions(options2)
+                                            document.getElementById('coord').innerHTML = msg;
+                                        }
+                                        else {
                                             console.log('not Available');
                                         }
                                     }
