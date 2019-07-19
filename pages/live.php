@@ -69,9 +69,18 @@
         </div>
 
         <div id='infoBoxes'>
-            <div class='infoBox'></div>
-            <div class='infoBox'></div>
-            <div class='infoBox' style='margin-right:0px;'></div>
+            <div class='infoBox'>
+                <p id='speedNum' class='infoBoxText big'>24</p>
+                <p class='infoBoxText small'>MPH</p>
+            </div>
+            <div class='infoBox'>
+                <p id='distNum' class='infoBoxText big'>12</p>
+                <p class='infoBoxText small'>Miles</p>
+            </div>
+            <div class='infoBox' style='margin-right:0px;'>
+                <p id='calNum' class='infoBoxText big'>400</p>
+                <p class='infoBoxText small'>Calories</p>
+            </div>
         </div>
        
         <div id='graphs'>

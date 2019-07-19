@@ -14,6 +14,14 @@
     src: url('../fonts/avenir/avenir-light.otf');
 }
 
+.big {
+    font-size: 32px;   
+}
+
+.small {
+    font-size: 15px;
+}
+
 #timerDiv {
     background-color: var(--box-color);
     height: 70px;
@@ -50,13 +58,24 @@
 .infoBox  {
     display: inline-block;
     width: 23%;
-    padding-top: 23%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    vertical-align: middle;
     /* border: 2px solid white; */
     margin-right: 4%;
     background-color: var(--box-color);
     box-shadow: 3px 4px 15px rgba(0,0,0,.3);
 
 }
+
+/* .infoBoxText {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 11;
+} */
 
 #startStopButtons {
     margin: 14px auto;
