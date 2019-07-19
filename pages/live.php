@@ -74,15 +74,16 @@
             <div class='infoBox' style='margin-right:0px;'></div>
         </div>
        
+        <div id='graphs'>
+            <div class='lineGraph' style='margin-right: 6%'></div>
+            <div class='lineGraph'></div>
+        </div>
+        
         <div id='startStopButtons'>
             <button class='breakButton' id='pause' style='margin-right: 6%'>Pause</button>
             <button class='breakButton' id='stop'>Stop</button>
         </div>
 
-        <div id='graphs'>
-            <div class='lineGraph' style='margin-right: 6%'></div>
-            <div class='lineGraph'></div>
-        </div>
         <!-- <div id='graphAltitude' class='graph'></div> -->
         <script>
             var altOptions = {
