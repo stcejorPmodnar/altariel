@@ -82,3 +82,19 @@
     background-color: rgba(255, 0, 0, 0.288);
     border: 2px solid rgba(255, 58, 58, 0.822);
 }
+
+#graphs {
+    margin: 14px auto;
+    text-align: center;
+}
+
+.lineGraph {
+    display: inline-block;
+    width: 37%;
+    height: 80px;
+    background-color: var(--box-color);
+    box-shadow: 3px 4px 15px rgba(0,0,0,.3); 
+    font-family: 'Avenir Light';
+    color: white;
+    font-size: 17px;
+}
