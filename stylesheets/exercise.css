@@ -7,7 +7,7 @@
     --start-red: rgb(131, 50, 197);
     --start-active:rgb(57, 0, 68);
     --main-purple: rgb(82, 0, 99);
-    --secondary-purple: #6A388F;
+    --secondary-purple: #680d92;
 }
 
 body {
@@ -31,11 +31,11 @@ body {
 
 .button {
     height: 49px;
-    width: 30%;
+    width: 44%;
     background-color: rgba(0, 0, 0, .5);
     margin-top: 3px;
     display: inline-block;
-    margin-right: 0%;
+    margin-right: 1%;
     cursor: pointer;
     vertical-align: middle;
     text-align: center;
