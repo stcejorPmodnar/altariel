@@ -6,6 +6,7 @@
         <!---===============  FOR STYLSHEETS  =======================-->
         <link rel="stylesheet" type="text/css" href="../stylesheets/main.css">
         <link rel="stylesheet" type="text/css" href="../stylesheets/exercise.css">
+        <link rel="stylesheet" type="text/css" href="../stylesheets/dashboard.css">
 
         <!---=============== FOR SETTING THE SCALE =======================-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,19 +17,38 @@
         <!---==================== FOR JQUERY ===============================================-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-        <script src="../flipclock/easytimer.min.js"></script>
 
-    <script>
+        <script src="../flipclock/easytimer.min.js"></script>
+        <script>
             var timer = new easytimer.Timer();
             timer.start();
             timer.addEventListener('secondsUpdated', function (e) {
-                $('#basicUsage').html(timer.getTimeValues().toString());
+                $('#timer').html(timer.getTimeValues().toString());
             });
         </script>
     </head>
     <body>
+
+        <?php 
+            $trans = $_POST['transport'];
+            $focus = $_POST['focus'];
+
+            if ( $trans == "buttonTop1" ) {
+                $transEng = "Running";
+            }
+            else {
+                $transEng = "Cycling";
+            }
+
+            if ( $focus == "buttonBottom1" ) {
+                $focusEng = "Endurance";
+            }
+            else {
+                $focusEng = "Speed";
+            }    
+        ?>
         <div id="navbar">
-            <h2 id="navbar-title">Fitness App</h2>
+            <h2 id="navbar-title"><a href='index.html'><img src='../images/logo-assets/altariel-04.svg' width=130 style='vertical-align:middle;transform:translate(0px, -3px);'></img></a></h2>
             <a href="exercise.html" class="navbar-link-text">
                 <h4>Exercise</h4>
             </a>
@@ -38,12 +58,31 @@
         </div>
         <div id='bumper'></div>
 
-        <p id='coord'></p>
+        <div id='workout'>
+            <h3 id='workoutText'>
+                Workout: <?php echo "$transEng, $focusEng" ?>
+            </h3>
+        </div>
 
-        <div id='timer'></div>
-        <p id="basicUsage"></p>
+        <div id=timerDiv>
+            <p id='timer'></p>
+        </div>
 
+        <div id='infoBoxes'>
+            <div class='infoBox'></div>
+            <div class='infoBox'></div>
+            <div class='infoBox' style='margin-right:0px;'></div>
+        </div>
+       
+        <div id='startStopButtons'>
+            <button class='breakButton' id='pause' style='margin-right: 6%'>Pause</button>
+            <button class='breakButton' id='stop'>Stop</button>
+        </div>
 
+        <div id='graphs'>
+            <div class='lineGraph'></div>
+            
+        </div>
         <!-- <div id='graphAltitude' class='graph'></div> -->
         <script>
             var altOptions = {
@@ -67,29 +106,6 @@
         </script>
 
         <?php 
-            $trans = $_POST['transport'];
-            $focus = $_POST['focus'];
-
-            if ( $trans == "buttonTop1" ) {
-                $transEng = "running";
-            }
-            elseif ( $trans == "buttonTop2" ) {
-                $transEng = "cycling";
-            }
-            else {
-                $transEng = "walking";
-            }
-
-            if ( $focus == "buttonBottom1" ) {
-                $focusEng = "distance";
-            }
-            elseif ( $focus == "buttonBottom2" ) {
-                $focusEng = "time";
-            }
-            else {
-                $focusEng = "speed";
-            }
-
 
             if (!file_exists( "../loc-data" )) {
                 mkdir("../loc-data");
@@ -121,8 +137,10 @@
                             function showLocation(position) {
                                 var latitude = position.coords.latitude;
                                 var longitude = position.coords.longitude;
-                                var alt = position.coords.altitude;
+                                // var alt = position.coords.altitude;
+                                var alt = 81
                                 console.log(alt);
+                                // console.log(position.coords.accuracy);
                                 $.ajax({
                                     type:'POST',
                                     url:'locationSaver.php',
