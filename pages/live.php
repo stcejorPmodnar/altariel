@@ -75,7 +75,7 @@
         </div>
        
         <div id='graphs'>
-            <div class='lineGraph' style='margin-right: 6%'></div>
+            <div class='lineGraph' style='margin-right: 4%'></div>
             <div class='lineGraph'></div>
         </div>
         

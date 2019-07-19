@@ -49,8 +49,8 @@
 
 .infoBox  {
     display: inline-block;
-    width: 22%;
-    padding-top: 22.5%;
+    width: 23%;
+    padding-top: 23%;
     /* border: 2px solid white; */
     margin-right: 4%;
     background-color: var(--box-color);
@@ -85,6 +85,7 @@
 
 #graphs {
     margin: 14px auto;
+    margin-bottom: 25px;
     text-align: center;
 }
 
