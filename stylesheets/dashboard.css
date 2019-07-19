@@ -2,3 +2,83 @@
     padding: 0px;
     margin: 0px;
 }
+
+:root {
+    --box-color: rgba(255, 255, 255, 0.137);
+    --box-color-hover: rgba(255, 255, 255, 0.178);
+
+}
+
+@font-face {
+    font-family: 'Avenir Light';
+    src: url('../fonts/avenir/avenir-light.otf');
+}
+
+#timerDiv {
+    background-color: var(--box-color);
+    height: 70px;
+    width: 80%;
+    font-size: 32px;
+    margin: 5px auto;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 3px 4px 15px rgba(0,0,0,.3);
+    transition: .2s;
+
+}
+#timerDiv:hover, #timerDiv:active {
+    background-color: var(--box-color-hover);
+    transition: .2s;
+    box-shadow: 3px 4px 20px rgba(0,0,0,.4);
+}
+
+#timer {
+    padding-top: 17px;
+}
+
+#workout {
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+#infoBoxes {
+    margin: 14px auto;
+    text-align: center;
+}
+
+.infoBox  {
+    display: inline-block;
+    width: 22%;
+    padding-top: 22.5%;
+    /* border: 2px solid white; */
+    margin-right: 4%;
+    background-color: var(--box-color);
+    box-shadow: 3px 4px 15px rgba(0,0,0,.3);
+
+}
+
+#startStopButtons {
+    margin: 14px auto;
+    text-align: center;
+}
+
+.breakButton {
+    width: 35%;
+    height: 48px;
+    outline: 0;
+    border: none;
+    background: none;
+    background-color: var(--box-color);
+    box-shadow: 3px 4px 15px rgba(0,0,0,.3); 
+    cursor: pointer;
+    font-family: 'Avenir Light';
+    color: white;
+    font-size: 17px;
+    border: 2px solid white;
+}
+
+#stop {
+    background-color: rgba(255, 0, 0, 0.288);
+    border: 2px solid rgba(255, 58, 58, 0.822);
+}
