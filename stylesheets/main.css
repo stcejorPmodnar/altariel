@@ -4,9 +4,9 @@
 }
 
 :root {
-    --start-red: rgb(150, 75, 211);
+    --start-red: rgb(131, 50, 197);
     --start-active:rgb(57, 0, 68);
-    --main-purple: rgb(82, 0, 99);
+    --main-purple: rgb(91, 0, 119);
     --secondary-purple: #680d92;
 }
 
@@ -74,11 +74,11 @@ a, p, h1, h2, h3, h4, h5, h6 {
 
 #title-section {
     text-align: center;
-    background-image: linear-gradient(rgb(82, 0, 99),#150030);
+    background-image: linear-gradient(var(--main-purple),#14001a);
 }
 
 #title-section > h2 {
-    margin: 10% 5% 3% 5%
+    margin: 0% 0% 0% 0%
 }
 
 #title-section > h4 {
@@ -100,7 +100,7 @@ hr {
     position: relative;
     display: table;
     width: 100%;
-    margin: 5% auto;
+    margin: 0% auto;
     height:200px;
     background-color: var(--secondary-purple);
 }
