@@ -8,14 +8,15 @@
     --start-active:rgb(57, 0, 68);
     --main-purple: rgb(82, 0, 99);
     --secondary-purple: #680d92;
-}
+}    
+
 
 body {
-    background: -webkit-gradient(linear, left top, left bottom, from(var(--main-purple)), to(#000000)) fixed;
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--main-purple)), to(#14001a)) fixed;
 }
 
 #workout-header {
-    padding:20px;
+    padding:5px;
     color: white;
     text-align: center;
     margin-top: 30px;
@@ -99,4 +100,20 @@ body {
     margin-left: auto;
     margin-right:auto;
     box-shadow: 0px 0px 12px rgba(0,0,0,.7)
+}
+
+input {
+    color: white;
+    background-color: rgb(0, 0, 0);
+    border: none;
+    outline: 0px;
+    padding: 10px;
+    width: 20%;
+    margin-left: 5%;
+}
+
+.inputDiv {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
