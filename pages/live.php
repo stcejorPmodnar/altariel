@@ -22,9 +22,17 @@
         <script>
             var timer = new easytimer.Timer();
             timer.start();
+
             timer.addEventListener('secondsUpdated', function (e) {
                 $('#timer').html(timer.getTimeValues().toString());
             });
+            timer.addEventListener('started', function (e) {
+                $('#timer').html(timer.getTimeValues().toString());
+            });
+            timer.addEventListener('reset', function (e) {
+                $('#timer').html(timer.getTimeValues().toString());
+            });
+
         </script>
     </head>
     <body>
@@ -89,7 +97,7 @@
         </div>
         
         <div id='startStopButtons'>
-            <button class='breakButton' id='pause' style='margin-right: 6%;' onclick='addPause()'>Pause</button>
+            <button class='breakButton' id='pause' style='margin-right: 6%;' onclick='addPause();timer.pause();'>Pause</button>
             <button class='breakButton' id='stop'>Stop</button>
         </div>
 
@@ -100,13 +108,15 @@
                 // el.innerHTML = 'Start';
                 // el.className = "breakButton paused";
                 // el.onclick = function() { el = document.getElementById('pause'); el.innerHTML = 'Pause'; el.className = "breakButton"; el.onclick = addPause();}
-                document.getElementById('startStopButtons').innerHTML = "<button class='breakButton' id='pause' style='margin-right: 6%;' onclick='removePause()'>Resume</button><button class='breakButton' id='stop'>Stop</button>"
+                document.getElementById('startStopButtons').innerHTML = "<button class='breakButton' id='pause' style='margin-right: 6%;' onclick='removePause();timer.start();'>Resume</button><button class='breakButton' id='stop'>Stop</button>"
                 document.getElementById('pause').className += " paused";
+                document.getElementById('pause').id = 'resume'
             }
 
             function removePause() {
-                document.getElementById('startStopButtons').innerHTML = "<button class='breakButton paused' id='pause' style='margin-right: 6%;' onclick='addPause()'>Pause</button><button class='breakButton' id='stop'>Stop</button>"
-                $("#pause").removeClass('paused')
+                document.getElementById('startStopButtons').innerHTML = "<button class='breakButton paused' id='resume' style='margin-right: 6%;' onclick='addPause();timer.pause();'>Pause</button><button class='breakButton' id='stop'>Stop</button>"
+                $("#resume").removeClass('paused');
+                document.getElementById('resume').id = 'pause'
             }
         </script>
         
