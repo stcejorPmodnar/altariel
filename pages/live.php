@@ -84,34 +84,66 @@
         </div>
        
         <div id='graphs'>
-            <div class='lineGraph' style='margin-right: 4%'></div>
-            <div class='lineGraph'></div>
+            <div class='lineGraph' style='margin-right: 4%;vertical-align:middle' id='graphSpeed'><h3 style='margin-top:8px;'>Speed</h3></div>
+            <div class='lineGraph' id='graphAltitude' style='vertical-align:middle'><h3 style='margin-top:8px;'>Altitude</h3></div>
         </div>
         
         <div id='startStopButtons'>
-            <button class='breakButton' id='pause' style='margin-right: 6%'>Pause</button>
+            <button class='breakButton' id='pause' style='margin-right: 6%;' onclick='addPause()'>Pause</button>
             <button class='breakButton' id='stop'>Stop</button>
         </div>
 
-        <!-- <div id='graphAltitude' class='graph'></div> -->
+
+        <script>
+            function addPause() {
+                // el = document.getElementById('pause');
+                // el.innerHTML = 'Start';
+                // el.className = "breakButton paused";
+                // el.onclick = function() { el = document.getElementById('pause'); el.innerHTML = 'Pause'; el.className = "breakButton"; el.onclick = addPause();}
+                document.getElementById('startStopButtons').innerHTML = "<button class='breakButton' id='pause' style='margin-right: 6%;' onclick='removePause()'>Resume</button><button class='breakButton' id='stop'>Stop</button>"
+                document.getElementById('pause').className += " paused";
+            }
+
+            function removePause() {
+                document.getElementById('startStopButtons').innerHTML = "<button class='breakButton paused' id='pause' style='margin-right: 6%;' onclick='addPause()'>Pause</button><button class='breakButton' id='stop'>Stop</button>"
+                $("#pause").removeClass('paused')
+            }
+        </script>
+        
+        
         <script>
             var altOptions = {
                 chart: {
                     type: 'line',
-                    height: 80,
+                    height: 42,
                     sparkline: {
                         enabled: true,
                     }
                 },
                 series: [{
-                    data: []
+                    data: [0]
                 }],
             }   
 
             var altChart = new ApexCharts(document.querySelector("#graphAltitude"), altOptions);
-
             altChart.render();
 
+            //======================================================
+
+            var speedOptions = {
+                chart: {
+                    type: 'line',
+                    height: 42,
+                    sparkline: {
+                        enabled: true,
+                    }
+                },
+                series: [{
+                    data: [0]
+                }],
+            }   
+            var speedChart = new ApexCharts(document.querySelector("#graphSpeed"), speedOptions);
+            speedChart.render();
 
         </script>
 
