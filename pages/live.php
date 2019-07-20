@@ -100,7 +100,7 @@
             <button class='breakButton' id='pause' style='margin-right: 6%;' onclick='addPause();timer.pause();'>Pause</button>
             <button class='breakButton' id='stop'>Stop</button>
         </div>
-
+        <p id='coord'></p>
 
         <script>
             function addPause() {
@@ -191,39 +191,47 @@
                                 var longitude = position.coords.longitude;
                                 // var alt = position.coords.altitude;
                                 var alt = 81
-                                console.log(alt);
-                                // console.log(position.coords.accuracy);
-                                $.ajax({
-                                    type:'POST',
-                                    url:'locationSaver.php',
-                                    data:'latitude='+latitude+'&longitude='+longitude+'&<?php echo "fileName=$newFolderName"?>',
-                                    success:function(msg){
-                                        
-                                        if ( msg ) {
-                                            // msg = JSON.parse(msg);
-                                            // console.log(msg);
-                                            // altMsg = msg.altitude;
-                                            // var options2 = {
-                                            //     chart: {
-                                            //         height: 80,
-                                            //         type: 'line',
-                                            //         sparkline: {
-                                            //             enabled: true,
-                                            //         }
-                                            //     },
-                                            //     series: [{
-                                            //         data: altMsg
-                                            //     }]
-                                            // }
 
-                                            // altChart.updateOptions(options2)
-                                            document.getElementById('coord').innerHTML = msg;
+                                if (document.getElementById('resume')) {
+                                    console.log('paused');
+                                }
+                                else {
+                                // console.log(position.coords.accuracy);
+                                    $.ajax({
+                                        type:'POST',
+                                        url:'locationSaver.php',
+                                        data:'altitude='+alt+'&latitude='+latitude+'&longitude='+longitude+'&<?php echo "fileName=$newFolderName"?>',
+                                        success:function(msg){
+                                            
+                                            if ( msg ) {
+                                                // msg = JSON.parse(msg);
+                                                // console.log(msg);
+                                                // altMsg = msg.altitude;
+                                                // var options2 = {
+                                                //     chart: {
+                                                //         height: 80,
+                                                //         type: 'line',
+                                                //         sparkline: {
+                                                //             enabled: true,
+                                                //         }
+                                                //     },
+                                                //     series: [{
+                                                //         data: altMsg
+                                                //     }]
+                                                // }
+
+                                                // altChart.updateOptions(options2)
+                                                // document.getElementById('coord').innerHTML = msg;
+                                                console.log(msg);
+                                                msg = JSON.parse(msg);
+                                                document.getElementById('distNum').innerHTML = msg.totalDist;
+                                            }
+                                            else {
+                                                console.log('not Available');
+                                            }
                                         }
-                                        else {
-                                            console.log('not Available');
-                                        }
-                                    }
-                                });
+                                    });
+                                }
                             }
                     }
                 }
