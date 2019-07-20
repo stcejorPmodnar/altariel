@@ -97,7 +97,9 @@ if(!empty($_POST['latitude']) && !empty($_POST['longitude'])){
 
     $altArray = shell_exec("../array-maker.sh ../$folderName/altitude/");
 
-    $returnArray = "{\"altitude\":$altArray, \"coordinates\":[$lat,$long], \"currentSpeed\":$speed, \"totalDist\":$putDist}";
+    $speedArray = shell_exec("../array-maker.sh ../$folderName/speed/");
+
+    $returnArray = "{\"altitude\":$altArray, \"speedArray\":$speedArray, \"coordinates\":[$lat,$long], \"currentSpeed\":$speed, \"totalDist\":$putDist}";
     echo $returnArray;
 
 }
