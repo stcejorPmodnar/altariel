@@ -10,4 +10,4 @@ def speed(secs, meters):
     print(miles_per_hour)
 
 if __name__ == "__main__":
-    speed(4, float(sys.argv[1]))
+    speed(2, float(sys.argv[1]))
