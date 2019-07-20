@@ -177,7 +177,7 @@
 
                 async function demo() {
                     while (1) {
-                        await sleep(4000);
+                        await sleep(2000);
                         $(document).ready(function() {
                             if(navigator.geolocation) {
                                 navigator.geolocation.getCurrentPosition(showLocation);
