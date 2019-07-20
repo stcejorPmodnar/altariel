@@ -34,7 +34,7 @@
                     el.className += " selected";
                 }
             </script>
-
+            <center><h3 style='margin-top:20px;'>Choose Type:</h3></center>
             <div class=buttonstrip>
                 <div class='button top' id='buttonTop1' onclick='addSelectedButtonClass(this.id);checkStart();'>
                     <span class='buttonstripLabelText'>Running</span>
@@ -43,13 +43,22 @@
                     <span class='buttonstripLabelText'>Cycling</span>
                 </div>
             </div>
-                
+            <center><h3 style='margin-top:10px;'>Choose Focus:</h3></center>
             <div class='buttonstrip' style='margin-top:5px;'>
-                <div class='button bottom' id='buttonBottom1' onclick='addSelectedButtonClass(this.id);checkStart();'>
+                <div class='button bottom' id='buttonBottom1' onclick='addSelectedButtonClass(this.id);checkStart();$("#speedInput").hide("fast");$("#enduranceInput").show("fast")'>
                     <span class='buttonstripLabelText'>Endurance</span>
                 </div>
-                <div class='button bottom' id='buttonBottom2' onclick='addSelectedButtonClass(this.id);checkStart();'>
+                <div class='button bottom' id='buttonBottom2' onclick='addSelectedButtonClass(this.id);checkStart();$("#enduranceInput").hide("fast");$("#speedInput").show("fast"); '>
                     <span class='buttonstripLabelText'>Speed</span>
+                </div>
+            </div>
+            
+            <div id='inputStrip'>
+                <div style='display:none;margin-top: 10px;' class='inputDiv' id='enduranceInput'>
+                    <span>Enter target time (minutes):</span><input type='number' id='endurance' placeholder='60' oninput="checkFilled(this.id)" min="1" max="500"></input>
+                </div>
+                <div style='display:none;margin-top: 10px;' class='inputDiv' id='speedInput'>
+                    <span>Enter target speed (MPH):</span><input type='number' id='speed' placeholder="7" oninput="checkFilled(this.id)" min=1 max=60 ></input>
                 </div>
             </div>
 
@@ -60,10 +69,14 @@
             </div>
         </div>
         <script>
-            function checkStart() {
-                var els = document.getElementsByClassName('selected').length;
-                if (els == 2) {
-                    // document.getElementById('greyStart').id = 'startButtonRemoveGrey'
+            function checkFilled(arg) {
+                value = document.getElementById(arg).value
+
+                if (value === "") {
+                    console.log('empty')
+                    document.getElementById('start').innerHTML = "<button id='greyStart' class='startbutton' > <span>Start Workout</span> </button>"
+                }
+                else {
                     document.getElementById('start').innerHTML =  "<form action='live.php' method='post'><input type='hidden' name='transport' id='transport_input' value='test'><input type='hidden' name='focus' id='focus_input' value='test'> <button id='startButtonRemoveGrey' class='startbutton' type=submit ><span>Start Workout</span></button></form>"
                     
                     var trans = document.getElementsByClassName('selected')[0].id;
@@ -73,6 +86,19 @@
                     document.getElementById('focus_input').value = focus;
 
                     document.getElementById('startButtonRemoveGrey').onclick = function() { $('#startSection').hide('fast') };
+                }
+            }
+            function checkStart() {
+                var els = document.getElementsByClassName('selected').length;
+                if (els == 2) {
+                    var focusChosen = document.getElementsByClassName('selected')[1].id;
+                    if (focusChosen == 'buttonBottom1') {
+                        checkFilled('endurance')
+                    }
+                    else {
+                        checkFilled("speed")
+                    }
+                    // document.getElementById('greyStart').id = 'startButtonRemoveGrey'
 
                 }
             }
