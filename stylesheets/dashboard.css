@@ -108,8 +108,8 @@
 }
 
 .paused {
-    background-color: rgba(255, 145, 0, 0.445);
-    border: 2px solid rgba(255, 171, 62, 0.904);
+    background-color: rgba(53, 66, 248, 0.158);
+    border: 2px solid rgb(157, 175, 255);
     transition: .2s;
 }
 
