@@ -78,15 +78,15 @@
 
         <div id='infoBoxes'>
             <div class='infoBox'>
-                <p id='speedNum' class='infoBoxText big'>24</p>
+                <p id='speedNum' class='infoBoxText big'>0</p>
                 <p class='infoBoxText small'>MPH</p>
             </div>
             <div class='infoBox'>
-                <p id='distNum' class='infoBoxText big'>12</p>
+                <p id='distNum' class='infoBoxText big'>0</p>
                 <p class='infoBoxText small'>Miles</p>
             </div>
             <div class='infoBox' style='margin-right:0px;'>
-                <p id='calNum' class='infoBoxText big'>400</p>
+                <p id='calNum' class='infoBoxText big'>0</p>
                 <p class='infoBoxText small'>Calories</p>
             </div>
         </div>
@@ -222,9 +222,16 @@
 
                                                 // altChart.updateOptions(options2)
                                                 // document.getElementById('coord').innerHTML = msg;
-                                                console.log(msg);
                                                 msg = JSON.parse(msg);
-                                                document.getElementById('distNum').innerHTML = msg.totalDist;
+                                                // var meterDist = Math.round( 100 * msg.totalDist ) / 100
+                                                var meterDist = msg.totalDist;
+                                                var milesDist = 0.000621371 * meterDist;
+                                                var roundedMilesDist = Math.round( milesDist * 100 ) / 100
+                                                document.getElementById('distNum').innerHTML = roundedMilesDist;
+
+                                                var curSpeed = msg.currentSpeed;
+                                                var roundedSpeed = Math.round( curSpeed * 100 ) / 100;
+                                                document.getElementById('speedNum').innerHTML = roundedSpeed;
                                             }
                                             else {
                                                 console.log('not Available');
