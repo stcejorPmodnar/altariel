@@ -204,26 +204,40 @@
                                         success:function(msg){
                                             
                                             if ( msg ) {
-                                                // msg = JSON.parse(msg);
-                                                // console.log(msg);
-                                                // altMsg = msg.altitude;
-                                                // var options2 = {
-                                                //     chart: {
-                                                //         height: 80,
-                                                //         type: 'line',
-                                                //         sparkline: {
-                                                //             enabled: true,
-                                                //         }
-                                                //     },
-                                                //     series: [{
-                                                //         data: altMsg
-                                                //     }]
-                                                // }
 
-                                                // altChart.updateOptions(options2)
-                                                // document.getElementById('coord').innerHTML = msg;
                                                 msg = JSON.parse(msg);
-                                                // var meterDist = Math.round( 100 * msg.totalDist ) / 100
+                                                
+                                                altMsg = msg.altitude;
+                                                var options2 = {
+                                                    chart: {
+                                                        height: 42,
+                                                        type: 'line',
+                                                        sparkline: {
+                                                            enabled: true,
+                                                        }
+                                                    },
+                                                    series: [{
+                                                        data: altMsg
+                                                    }]
+                                                }
+                                                altChart.updateOptions(options2)
+                                                
+
+                                                speedMsg = msg.speedArray;
+                                                var speedOptions2 = {
+                                                    chart: {
+                                                        height: 42,
+                                                        type: 'line',
+                                                        sparkline: {
+                                                            enabled: true,
+                                                        }
+                                                    },
+                                                    series: [{
+                                                        data: speedMsg
+                                                    }]
+                                                }
+                                                speedChart.updateOptions(speedOptions2)
+
                                                 var meterDist = msg.totalDist;
                                                 var milesDist = 0.000621371 * meterDist;
                                                 var roundedMilesDist = Math.round( milesDist * 100 ) / 100
