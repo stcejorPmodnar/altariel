@@ -43,9 +43,11 @@
 
             if ( $trans == "buttonTop1" ) {
                 $transEng = "Running";
+                $calorieOpt = "run";
             }
             else {
                 $transEng = "Cycling";
+                $calorieOpt = "bike";
             }
 
             if ( $focus == "buttonBottom1" ) {
@@ -92,8 +94,14 @@
         </div>
        
         <div id='graphs'>
-            <div class='lineGraph' style='margin-right: 4%;vertical-align:middle' id='graphSpeed'><h3 style='margin-top:8px;'>Speed</h3></div>
-            <div class='lineGraph' id='graphAltitude' style='vertical-align:middle'><h3 style='margin-top:8px;'>Altitude</h3></div>
+            <div class='lineGraph' style='margin-right: 4%;vertical-align:middle'>
+                <h3 style='margin-top:8px;'>Speed</h3>
+                <div id='graphSpeed'></div>
+            </div>
+            <div class='lineGraph' style='vertical-align:middle'>
+                <h3 style='margin-top:8px;'>Altitude</h3>
+                <div id='graphAltitude'></div>
+            </div>
         </div>
         
         <div id='startStopButtons'>
@@ -200,13 +208,12 @@
                                     $.ajax({
                                         type:'POST',
                                         url:'locationSaver.php',
-                                        data:'altitude='+alt+'&latitude='+latitude+'&longitude='+longitude+'&<?php echo "fileName=$newFolderName"?>',
+                                        data:'calorieOpt=<?php echo $calorieOpt ?>&altitude='+alt+'&latitude='+latitude+'&longitude='+longitude+'&<?php echo "fileName=$newFolderName"?>',
                                         success:function(msg){
                                             
                                             if ( msg ) {
 
-                                                msg = JSON.parse(msg);
-                                                
+                                                msg = JSON.parse(msg);                                                
                                                 altMsg = msg.altitude;
                                                 var options2 = {
                                                     chart: {
@@ -215,6 +222,10 @@
                                                         sparkline: {
                                                             enabled: true,
                                                         }
+                                                    },
+                                                    stroke: {
+                                                        width: 2,
+                                                        colors: '#fff', // array of colors
                                                     },
                                                     series: [{
                                                         data: altMsg
@@ -232,6 +243,10 @@
                                                             enabled: true,
                                                         }
                                                     },
+                                                    stroke: {
+                                                        width: 2,
+                                                        colors: '#fff', // array of colors
+                                                    },
                                                     series: [{
                                                         data: speedMsg
                                                     }]
@@ -246,6 +261,8 @@
                                                 var curSpeed = msg.currentSpeed;
                                                 var roundedSpeed = Math.round( curSpeed * 100 ) / 100;
                                                 document.getElementById('speedNum').innerHTML = roundedSpeed;
+
+                                                document.getElementById('calNum').innerHTML = msg.calories
                                             }
                                             else {
                                                 console.log('not Available');
