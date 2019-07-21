@@ -5,6 +5,9 @@ def get_met(exercise_type, speed):  # speed in mph
     
     if exercise_type == "run":
 
+        if speed < 4:
+            return 6.0
+
         if 4 <= speed < 5:
             return 6.0
 
@@ -49,6 +52,9 @@ def get_met(exercise_type, speed):  # speed in mph
 
     elif exercise_type == "bike":
 
+        if speed < 5.5:
+            return 3.5
+
         if 5.5 <= speed < 9.4:
             return 3.5
 
@@ -74,7 +80,7 @@ def get_met(exercise_type, speed):  # speed in mph
 def calories(exercise_type, speed):
 
     met = get_met(exercise_type, speed)
-    return (met * 62.0) / 1800  # 62 is average weight in kg, and 1800 because 2 seconds
+    return round((met * 62.0) / 1800)  # 62 is average weight in kg, and 1800 because 2 seconds
 
 
 if __name__ == "__main__":
