@@ -197,8 +197,8 @@
                             function showLocation(position) {
                                 var latitude = position.coords.latitude;
                                 var longitude = position.coords.longitude;
-                                // var alt = position.coords.altitude;
-                                var alt = 81
+                                var alt = position.coords.altitude;
+                                // var alt = 81
 
                                 if (document.getElementById('resume')) {
                                     console.log('paused');
