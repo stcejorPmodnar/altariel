@@ -34,6 +34,9 @@ if(!empty($_POST['latitude']) && !empty($_POST['longitude'])){
         mkdir("../$folderName/dist-cumulative");
     }
 
+    if (!file_exists( "../$folderName/calories" )) {
+        mkdir("../$folderName/calories");
+    }
 
     $iterNum = preg_replace('/\s+/', '', shell_exec("ls ../$folderName/distance/ | wc -l | tr -d ' ' "));
 
@@ -48,9 +51,12 @@ if(!empty($_POST['latitude']) && !empty($_POST['longitude'])){
         file_put_contents("../$folderName/distance/1.txt", "0");
         file_put_contents("../$folderName/speed/1.txt", "0");
         file_put_contents("../$folderName/dist-cumulative/dist.txt", "0");
+        file_put_contents("../$folderName/calories/total.txt", "0");
+
         $distanceContent = 0;
         $speed = 0;
         $putDist = 0;
+        $putCal = 0;
     }
     else {
         $distName = "$folderName/distance/";
@@ -71,9 +77,15 @@ if(!empty($_POST['latitude']) && !empty($_POST['longitude'])){
         $speed = shell_exec("python3 ../analysis/continual/speed.py $distanceContent");
         shell_exec("../filecreator.sh $speedName $speed");
 
+        $calorieOpt = $_POST['calorieOpt'];
         //Delete:
         // echo "You are going at $speed mph<br>";
 
+        $calName = "$folderName/calories/";
+        $calories = preg_replace('/\s+/', '', shell_exec("python3 ../analysis/continual/calories.py $calorieOpt $speed"));
+        $total = file_get_contents("../$folderName/calories/total.txt");
+        $putCal = $total + $calories;
+        file_put_contents("../$folderName/calories/total.txt", $putCal);
 
     }
 
@@ -94,12 +106,11 @@ if(!empty($_POST['latitude']) && !empty($_POST['longitude'])){
     shell_exec("../filecreator.sh $altFileName $altContent");
 
     #now it has to return arrays with coords, speed, etc etc etc
-
     $altArray = shell_exec("../array-maker.sh ../$folderName/altitude/");
 
     $speedArray = shell_exec("../array-maker.sh ../$folderName/speed/");
 
-    $returnArray = "{\"altitude\":$altArray, \"speedArray\":$speedArray, \"coordinates\":[$lat,$long], \"currentSpeed\":$speed, \"totalDist\":$putDist}";
+    $returnArray = "{\"altitude\":$altArray, \"speedArray\":$speedArray, \"coordinates\":[$lat,$long], \"currentSpeed\":$speed, \"totalDist\":$putDist, \"calories\":$putCal}";
     echo $returnArray;
 
 }
