@@ -8,7 +8,7 @@ if(!empty($_POST['latitude']) && !empty($_POST['longitude'])){
     #GET ALTITUDE using a post request to jawglab
     // $json = file_get_contents("https://api.jawg.io/elevations?locations=$lat,$long&access-token=SBoWI0LKukjdjz2FZfE4lRxl9gWRAknp8ND00ZGn6Fp2H0buugWehRu5dgvo7CQu");
     // $json = json_decode($json);
-
+    $alt = file_get_contents("https://api.airmap.com/elevation/v1/ele/?points=$lat,$long");
 
     # Creates a dir to store the coordinates
     // ======================================
