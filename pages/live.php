@@ -40,7 +40,7 @@
         <?php 
             $trans = $_POST['transport'];
             $focus = $_POST['focus'];
-
+            $goal = $_POST['goal'];
             if ( $trans == "buttonTop1" ) {
                 $transEng = "Running";
                 $calorieOpt = "run";
@@ -61,6 +61,8 @@
             <h2 id="navbar-title"><a href='index.html'><img src='../images/logo-assets/altariel-04.svg' width=130 style='vertical-align:middle;transform:translate(0px, -3px);'></img></a></h2>
             <a href="exercise.html" class="navbar-link-text">
                 <h4>Exercise</h4>
+                <div class='under active'></div>
+
             </a>
             <a href="../index.html" class="navbar-link-text">
                 <h4>Home</h4>
@@ -106,7 +108,7 @@
         
         <div id='startStopButtons'>
             <button class='breakButton' id='pause' style='margin-right: 6%;' onclick='addPause();timer.pause();'>Pause</button>
-            <button class='breakButton' id='stop'>Stop</button>
+            <form style='display:inline-block;width:35%;'><button type='submit' style='width:100%;' class='breakButton' id='stop'>Stop</button></form>
         </div>
         <p id='coord'></p>
 
