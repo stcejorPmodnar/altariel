@@ -116,3 +116,81 @@ input {
     margin-right: auto;
     text-align: center;
 }
+
+#bottomButtonStrip {
+    opacity: 0;
+}
+
+.fadeLeft {
+    animation-name: fadeLeft;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-delay: .45s;
+    animation-timing-function: ease-in-out;
+}  
+
+@keyframes fadeLeft {
+    from {
+        opacity: 1;
+        transform: translate(0px,0px);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-500px,0px);
+    }
+}
+
+.fadeLeftFromRight {
+    animation-name: fadeLeftFromRight;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-delay: .45s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fadeLeftFromRight {
+    from {
+        transform:translate(400px,-75px);
+        opacity:0;
+    }
+    to {
+        transform:translate(0px,-75px);
+        opacity:1;
+    }
+}
+
+.fadeOut {
+    animation-name: fadeOut;
+    animation-duration: .5s;
+    animation-fill-mode: both;
+    animation-delay: .25s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity:1;
+    }
+    to {
+        opacity:0;
+    }
+}
+
+.fadeUp {
+    animation-name: fadeUp;
+    animation-duration: .5s;
+    animation-fill-mode: both;
+    animation-delay: .85s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity:0;
+        transform: translate(-35px,15px);
+    }
+    to {
+        opacity:1;
+        transform: translate(-35px,-10px);
+    }
+}
