@@ -6,12 +6,12 @@
 :root {
     --start-red: rgb(131, 50, 197);
     --start-active:rgb(57, 0, 68);
-    --main-purple: rgb(91, 0, 119);
+    --main-purple: rgb(70, 0, 92);
     --secondary-purple: #680d92;
 }    
 
 body {
-    background: -webkit-gradient(linear, left top, left bottom, from(var(--main-purple)), to(#14001a)) fixed;
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--main-purple)), to(#000000)) fixed;
 }
 
 #workout-header {
@@ -23,23 +23,26 @@ body {
 
 .buttonstrip {
     width: 90%;
-    height: 70px;
+    height: 55px;
     margin: auto;
-    padding-left: 3.5%;
-    margin-top: 15px;
+    margin-top: 12px;
+    margin-left: auto;
+    margin-right:auto;
+    text-align:center;
 }
 
 .button {
     height: 49px;
-    width: 44%;
-    background-color: rgba(0, 0, 0, .5);
-    margin-top: 3px;
+    width: 35%;
+    background-color: rgba(104, 13, 146, .6);
+    margin-left: auto;
     display: inline-block;
-    margin-right: 1%;
+    margin-right: auto;
     cursor: pointer;
     vertical-align: middle;
     text-align: center;
-    padding: 1%;
+    padding: 3px 10px;
+    margin-right: 0%
 }
 
 .buttonstripLabelText {
@@ -187,10 +190,10 @@ input {
 @keyframes fadeUp {
     from {
         opacity:0;
-        transform: translate(-35px,15px);
+        transform: translate(-27px,15px);
     }
     to {
         opacity:1;
-        transform: translate(-35px,-10px);
+        transform: translate(-27px,-10px);
     }
 }
