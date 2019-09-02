@@ -44,6 +44,17 @@
                     document.getElementById('chooseText2').className += " fadeUp";
 
                 }
+
+                function divShow(element) {
+                    if (element == "end") {
+                        $("#enduranceInput").addClass("FadeDownShow")
+                        $("#speedInput").addClass("FadeDownHide")
+                    }
+                    else {
+                        $("#speedInput").addClass("FadeDownShow")
+                        $("#enduranceInput").addClass("FadeDownHide")
+                    }
+                }
             </script>
             <center>
                     <div style='display: inline-block;font-family:"Avenir Light";vertical-align:middle;color:white;margin-top:30px;font-size:22px;transform:translate(28px,-10px)'>Choose&nbsp;</div>
@@ -59,10 +70,10 @@
                 </div>
             </div>
             <div class='buttonstrip' id='buttonstripBottom' style='margin-top:5px;transform:translate(400px,-55px);opacity:0;margin-top: 20px;'>
-                <div class='button bottom' id='buttonBottom1' onclick='addSelectedButtonClass(this.id);checkStart();$("#speedInput").hide("fast");$("#enduranceInput").show("fast")'>
+                <div class='button bottom' id='buttonBottom1' onclick='addSelectedButtonClass(this.id);checkStart();divShow("end")'>
                     <span class='buttonstripLabelText'>Endurance</span>
                 </div>
-                <div class='button bottom' id='buttonBottom2' onclick='addSelectedButtonClass(this.id);checkStart();$("#enduranceInput").hide("fast");$("#speedInput").show("fast"); '>
+                <div class='button bottom' id='buttonBottom2' onclick='addSelectedButtonClass(this.id);checkStart();divShow("speed") '>
                     <span class='buttonstripLabelText'>Speed</span>
                 </div>
             </div>
