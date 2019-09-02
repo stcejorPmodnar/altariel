@@ -59,7 +59,7 @@ body {
 }
 
 #start {
-    width: 87%;
+    width: 75%;
     margin: auto;
 }
 
@@ -106,12 +106,14 @@ body {
 
 input {
     color: white;
-    background-color: rgb(0, 0, 0);
+    background-color: rgba(104, 13, 146, .6);
     border: none;
     outline: 0px;
     padding: 10px;
     width: 12%;
     margin-left: 5%;
+    height: 10px;
+    margin-top: 10px;
 }
 
 .inputDiv {
@@ -195,5 +197,114 @@ input {
     to {
         opacity:1;
         transform: translate(-27px,-10px);
+    }
+}
+
+.FadeDownShow1 {
+    animation-name: FadeDownShow1;
+    animation-duration: .5s;
+    animation-fill-mode: both;
+    animation-delay: .2s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes FadeDownShow1 {
+    from {
+        opacity:0;
+        transform:translate(-200px,-45px)
+    }
+    to {
+        opacity:1;
+        transform:translate(0px,-45px)
+    }
+}
+
+.FadeDownHide1 {
+    animation-name: FadeDownHide1;
+    animation-duration: .5s;
+    animation-fill-mode: both;
+    animation-delay: .2s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes FadeDownHide1 {
+    from {
+        opacity:1;
+        transform:translate(0px,-45px)
+    }
+    to {
+        opacity:0;
+        transform:translate(200px,-45px)
+    }
+}
+
+
+.FadeDownShow2 {
+    animation-name: FadeDownShow2;
+    animation-duration: .5s;
+    animation-fill-mode: both;
+    animation-delay: .2s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes FadeDownShow2 {
+    from {
+        opacity:0;
+        transform:translate(-200px,0px)
+    }
+    to {
+        opacity:1;
+        transform:translate(0px,0px)
+    }
+}
+
+.FadeDownHide2 {
+    animation-name: FadeDownHide2;
+    animation-duration: .5s;
+    animation-fill-mode: both;
+    animation-delay: .2s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes FadeDownHide2 {
+    from {
+        opacity:1;
+        transform:translate(0px,0px)
+    }
+    to {
+        opacity:0;
+        transform:translate(200px,0px)
+    }
+}
+
+.fadeInButton {
+    animation-name: fadeInButton;
+    animation-duration: .3s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fadeInButton {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+.fadeOutButton {
+    animation-name: fadeOutButton;
+    animation-duration: .3s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fadeOutButton {
+    from {
+        opacity:1;
+    }
+    to {
+        opacity:0;
     }
 }
