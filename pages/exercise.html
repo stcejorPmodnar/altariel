@@ -2,17 +2,14 @@
 <html>
     <head>
         <title>Fitness App | Your Exercise</title>
-        <link rel="stylesheet" type="text/css" href="../stylesheets/main.css">
-        <link rel="stylesheet" type="text/css" href="../stylesheets/exercise.css">
+        <link rel="stylesheet" type="text/css" href="../assets/stylesheets/main.css">
+        <link rel="stylesheet" type="text/css" href="../assets/stylesheets/exercise.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="stylesheet" href="../fonts/Inter (web)/inter.css">
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <body>
         <div id="navbar">
-                <h2 id="navbar-title"><a href='index.html'><img src='../images/logo-assets/altariel-04.svg' width=130 style='vertical-align:middle;transform:translate(0px, -3px);'></img></a></h2>
+                <h2 id="navbar-title"><a href='index.html'><img src='../assets/images/logo-assets/altariel-04.svg' width=130 style='vertical-align:middle;transform:translate(0px, -3px);'></img></a></h2>
                 <a href="exercise.html" class="navbar-link-text">
                 <h4>Exercise</h4>
                 <div class='under active'></div>
@@ -105,11 +102,11 @@
                     
                 }
             </script>
-            <center>
-                    <div style='display: inline-block;font-family:"Avenir Light";vertical-align:middle;color:white;margin-top:30px;font-size:22px;transform:translate(28px,-10px)'>Choose&nbsp;</div>
-                    <div id='chooseText' style='display: inline-block;font-family:"Avenir Light";vertical-align:middle;color:white;margin-top:30px;font-size:22px;transform:translate(28px,-10px)'>type:</div>
-                    <div id='chooseText2' style='display: inline-block;font-family:"Avenir Light";vertical-align:middle;color:white;margin-top:30px;font-size:22px;transform:translate(-27px,15px);opacity:0'>focus:</div>
-            </center>
+            <div style='text-align: center'>
+                <div style='display: inline-block;font-family:"Avenir Light";vertical-align:middle;color:white;margin-top:30px;font-size:22px;transform:translate(28px,-10px)'>Choose&nbsp;</div>
+                <div id='chooseText' style='display: inline-block;font-family:"Avenir Light";vertical-align:middle;color:white;margin-top:30px;font-size:22px;transform:translate(28px,-10px)'>type:</div>
+                <div id='chooseText2' style='display: inline-block;font-family:"Avenir Light";vertical-align:middle;color:white;margin-top:30px;font-size:22px;transform:translate(-27px,15px);opacity:0'>focus:</div>
+            </div>
             <div class="buttonstrip" id='buttonstripTop'>
                 <div class='button top' id='buttonTop1' onclick='moveDiv();addSelectedButtonClass(this.id);'>
                     <span class='buttonstripLabelText'>Running</span>
@@ -118,7 +115,7 @@
                     <span class='buttonstripLabelText'>Cycling</span>
                 </div>
             </div>
-            <div class='buttonstrip' id='buttonstripBottom' style='margin-top:5px;transform:translate(400px,-55px);opacity:0;margin-top: 20px;'>
+            <div class='buttonstrip' id='buttonstripBottom' style='transform:translate(400px,-55px);opacity:0;margin-top: 20px;'>
                 <div class='button bottom' id='buttonBottom1' onclick='divShow("end");addSelectedButtonClass(this.id);showButton();'>
                     <span class='buttonstripLabelText'>Endurance</span>
                 </div>
