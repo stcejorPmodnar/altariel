@@ -2,15 +2,22 @@
 <html>
     <head>
         <title>Fitness App | Your Exercise</title>
+
         <link rel="stylesheet" type="text/css" href="../assets/stylesheets/main.css">
         <link rel="stylesheet" type="text/css" href="../assets/stylesheets/exercise.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="../assets/js/exercise.js"></script>
     </head>
     <body>
         <div id="navbar">
-                <h2 id="navbar-title"><a href='index.html'><img src='../assets/images/logo-assets/altariel-04.svg' width=130 style='vertical-align:middle;transform:translate(0px, -3px);'></img></a></h2>
-                <a href="exercise.html" class="navbar-link-text">
+            <h2 id="navbar-title">
+                <a href='index.html'>
+                    <img src='../assets/images/logo-assets/altariel-04.svg' width=130 style='vertical-align:middle;transform:translate(0px, -3px);'></img>
+                </a>
+            </h2>
+            <a href="exercise.html" class="navbar-link-text">
                 <h4>Exercise</h4>
                 <div class='under active'></div>
             </a>
@@ -18,95 +25,20 @@
                 <h4>Home</h4>
             </a>
         </div>
+
         <div id='bumper'></div>
+
         <div id='startSection'>
             <div id="workout-header" style='margin-bottom:30px;'>
                 <h1>Start a workout:</h1>
             </div>
 
-            <script>
-                function addSelectedButtonClass(id) {
-                    var el = document.getElementById(id);
-                    var classN = el.className;
-                    var split = classN.split(" ")
-                    var string = split[1];
-                    $('.'+string).removeClass( "selected" )
-                    el.className += " selected";
-                }
-
-                async function moveDiv() {
-                    document.getElementById('buttonstripTop').className += " fadeLeft"
-                    document.getElementById('buttonstripBottom').className += " fadeLeftFromRight"
-                    document.getElementById('chooseText').className += " fadeOut";
-                    document.getElementById('chooseText2').className += " fadeUp";
-
-                }
-
-                function hasClass(element, className) {
-                    return (' ' + element.className + ' ').indexOf(' ' + className+ ' ') > -1;
-                }
-
-                function divShow(element) {
-
-                    var doc = document.getElementById("buttonstripBottom");
-                    console.log(doc)
-                    var selected = 0;
-
-                    for (var i = 0; i < doc.childNodes.length; i++) {
-                        if ( hasClass(doc.childNodes[i], "selected")) {
-                            selected++
-                        };
-                        // if (doc.childNodes[i].classList.contains("selected")) {
-                        //     selected++
-                        // }        
-                    }
-
-                    if ( selected == 0 ) {
-                        if (element == "end") {
-                            $("#enduranceInput").addClass("FadeDownShow2")
-                            document.getElementById("enduranceInput").style.zIndex = "10000";
-                            document.getElementById("speedInput").style.zIndex = "10";
-
-                        }
-                        else {
-                            $("#speedInput").addClass("FadeDownShow1")
-                            document.getElementById("speedInput").style.zIndex = "10000";
-                            document.getElementById("enduranceInput").style.zIndex = "10";
-                        }
-                    }
-                    else {
-                        if (element == "end") {
-
-                            $("#speedInput").removeClass("FadeDownShow1")
-                            $("#speedInput").addClass("FadeDownHide1")
-
-                            $("#enduranceInput").removeClass("FadeDownHide2")
-                            $("#enduranceInput").addClass("FadeDownShow2")
-
-                            document.getElementById("enduranceInput").style.zIndex = "10000";
-                            document.getElementById("speedInput").style.zIndex = "10";
-                        }
-                        else {
-
-                            $("#speedInput").addClass("FadeDownShow1")
-                            $("#speedInput").removeClass("FadeDownHide1")
-
-                            document.getElementById("speedInput").style.zIndex = "10000";
-                            document.getElementById("enduranceInput").style.zIndex = "10";
-
-                            $("#enduranceInput").addClass("FadeDownHide2")
-                            $("#enduranceInput").removeClass("FadeDownShow2")
-
-                        }
-                    }
-                    
-                }
-            </script>
-            <div style='text-align: center'>
+            <div class='center'>
                 <div style='display: inline-block;font-family:"Avenir Light";vertical-align:middle;color:white;margin-top:30px;font-size:22px;transform:translate(28px,-10px)'>Choose&nbsp;</div>
                 <div id='chooseText' style='display: inline-block;font-family:"Avenir Light";vertical-align:middle;color:white;margin-top:30px;font-size:22px;transform:translate(28px,-10px)'>type:</div>
                 <div id='chooseText2' style='display: inline-block;font-family:"Avenir Light";vertical-align:middle;color:white;margin-top:30px;font-size:22px;transform:translate(-27px,15px);opacity:0'>focus:</div>
             </div>
+
             <div class="buttonstrip" id='buttonstripTop'>
                 <div class='button top' id='buttonTop1' onclick='moveDiv();addSelectedButtonClass(this.id);'>
                     <span class='buttonstripLabelText'>Running</span>
@@ -138,78 +70,5 @@
                 <form action='live.php' method='post'><input type='hidden' name='transport' id='transport_input' value='test'><input type='hidden' name='goal' id='goal_input' value='test'><input type='hidden' name='focus' id='focus_input' value='test'> <button id='startButtonRemoveGrey' class='startbutton' type=submit ><span>Start Workout</span></button></form>
             </div>
         </div>
-        <script>
-            function checkFilled(arg) {
-                value = document.getElementById(arg).value;
-
-                if (value === "") {
-                    console.log('empty');
-                    return false;
-                }
-                else {
-                    var els = document.getElementsByClassName('selected').length;
-                    if (els == 2) {
-                        
-                        var trans = document.getElementsByClassName('selected')[0].id;
-                        var focus = document.getElementsByClassName('selected')[1].id;
-
-                        if ( focus == "buttonBottom1" ) {
-                            goalCheckId = "endurance"
-                        }
-                        else {
-                            goalCheckId = "speed"
-                        }
-
-                        var goal = document.getElementById(goalCheckId).value
-
-                        document.getElementById('transport_input').value = trans;
-                        document.getElementById('focus_input').value = focus;
-                        document.getElementById('goal_input').value = goal;
-                        return true;
-
-                    }
-                }
-            }
-
-            function checkStart() {
-                var els = document.getElementsByClassName('selected').length;
-                if (els == 2) {
-                    var focusChosen = document.getElementsByClassName('selected')[1].id;
-                    if (focusChosen == 'buttonBottom1') {
-                        if (checkFilled('endurance')) {
-                            return true;
-                        }
-                    }
-                    else {
-                        if (checkFilled("speed")) {
-                            return true;
-                        }
-                    }
-                    // document.getElementById('greyStart').id = 'startButtonRemoveGrey'
-
-                }
-                else {
-                    return false;
-                }
-            }
-            function showButton() {
-                if (checkStart()) {
-                    $('#start').addClass("fadeInButton")
-                    $('#start').removeClass("fadeOutButton")
-                    console.log("gointo show")
-                }
-                else  {
-                    if ( $('#start').hasClass("fadeInButton") ) {
-                        $('#start').addClass("fadeOutButton")
-                        $('#start').removeClass("fadeInButton")
-                        console.log("gointo hide")
-                    }
-
-                }
-            }
-            // function hideStart() {
-            //     $('#startSection').hide('fast')
-            // }
-        </script>
     </body>
 </html>

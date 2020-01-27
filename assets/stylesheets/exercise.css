@@ -37,7 +37,6 @@ body {
     background-color: rgba(104, 13, 146, .6);
     margin-left: auto;
     display: inline-block;
-    margin-right: auto;
     cursor: pointer;
     vertical-align: middle;
     text-align: center;
@@ -70,7 +69,6 @@ body {
     border: 2px solid var(--start-red);
     width:100%;
     height: 60px;
-    background-color: rgba(0,0,0,0);
     color: white;
     font-size: 20px;
     font-family: 'Avenir Light';
@@ -307,4 +305,8 @@ input {
     to {
         opacity:0;
     }
+}
+
+.center {
+    text-align: center;
 }
