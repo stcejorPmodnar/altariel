@@ -76,33 +76,35 @@
             </h3>
         </div>
 
-        <div id=timerDiv>
-            <p id='timer'></p>
-        </div>
+        <div id='liveCont'>
+            <div id=timerDiv>
+                <p id='timer'></p>
+            </div>
 
-        <div id='infoBoxes'>
-            <div class='infoBox'>
-                <p id='speedNum' class='infoBoxText big'>0</p>
-                <p class='infoBoxText small'>MPH</p>
+            <div id='infoBoxes'>
+                <div class='infoBox'>
+                    <p id='speedNum' class='infoBoxText big'>0</p>
+                    <p class='infoBoxText small'>MPH</p>
+                </div>
+                <div class='infoBox'>
+                    <p id='distNum' class='infoBoxText big'>0</p>
+                    <p class='infoBoxText small'>Miles</p>
+                </div>
+                <div class='infoBox' style='margin-right:0px;'>
+                    <p id='calNum' class='infoBoxText big'>0</p>
+                    <p class='infoBoxText small'>Calories</p>
+                </div>
             </div>
-            <div class='infoBox'>
-                <p id='distNum' class='infoBoxText big'>0</p>
-                <p class='infoBoxText small'>Miles</p>
-            </div>
-            <div class='infoBox' style='margin-right:0px;'>
-                <p id='calNum' class='infoBoxText big'>0</p>
-                <p class='infoBoxText small'>Calories</p>
-            </div>
-        </div>
-       
-        <div id='graphs'>
-            <div class='lineGraph' style='margin-right: 4%;vertical-align:middle'>
-                <h3 style='margin-top:8px;'>Speed</h3>
-                <div id='graphSpeed'></div>
-            </div>
-            <div class='lineGraph' style='vertical-align:middle'>
-                <h3 style='margin-top:8px;'>Altitude</h3>
-                <div id='graphAltitude'></div>
+        
+            <div id='graphs'>
+                <div class='lineGraph' style='margin-right: 4%;vertical-align:middle'>
+                    <h3 style='margin-top:8px;'>Speed</h3>
+                    <div id='graphSpeed'></div>
+                </div>
+                <div class='lineGraph' style='vertical-align:middle'>
+                    <h3 style='margin-top:8px;'>Altitude</h3>
+                    <div id='graphAltitude'></div>
+                </div>
             </div>
         </div>
         
